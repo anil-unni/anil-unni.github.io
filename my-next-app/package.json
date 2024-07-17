@@ -3,11 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-  "build": "next build",
-  "export": "next export",
-  "predeploy": "npm run build && npm run export",
-  "deploy": "gh-pages -d ."
-},
+    "build": "next build",
+    "export": "next export",
+    "predeploy": "npm run build && npm run export",
+    "deploy": "gh-pages -d ."
+  },  
   "dependencies": {
     "framer-motion": "^11.3.6",
     "next": "14.2.4",
