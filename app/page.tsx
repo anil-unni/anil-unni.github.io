@@ -14,6 +14,9 @@ export default function FlipWordsDemo() {
     "Backend Developer",
     "Tech Enthusiast",
     "React Developer",
+    "Problem Solver",
+    "FastAPI Expert",
+    "Cloud Architect",
   ];
 
   // Function to toggle theme and save to local storage
@@ -37,7 +40,8 @@ export default function FlipWordsDemo() {
   return (
     <div
       className={`flex flex-col justify-between h-screen px-4 md:px-6 lg:px-12 ${isDarkMode ? "bg-black text-white" : "bg-white text-black"
-        } ${poppins.className} overflow-hidden`}
+        } ${poppins.className} transition-all duration-500`}
+      style={{ overflow: 'hidden' }} // Prevent scrolling
     >
       {/* Theme Toggle Button */}
       <div className="w-full flex justify-end items-start py-4">
@@ -56,14 +60,14 @@ export default function FlipWordsDemo() {
       </div>
 
       {/* Main Content */}
-      <div className="flex flex-col items-start mt-10 ml-6 md:ml-16 lg:ml-20 flex-grow max-w-full">
-        <h1 className="text-5xl md:text-5xl lg:text-6xl xl:text-7xl font-normal leading-tight">
+      <div className="flex flex-col items-start mt-10 ml-6 md:ml-16 lg:ml-20 max-w-full">
+        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-normal leading-tight">
           Hi,
         </h1>
-        <h1 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-normal leading-tight">
+        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-normal leading-tight">
           I’m <span>Anil Unni</span>
         </h1>
-        <div className="text-2xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-extralight flex flex-row flex-wrap gap-2 mt-4">
+        <div className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-extralight flex flex-row flex-wrap gap-2 mt-4">
           A <FlipWords words={words} />
         </div>
       </div>
