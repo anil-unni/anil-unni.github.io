@@ -1,0 +1,52 @@
+{
+  "name": "qss",
+  "version": "3.0.0",
+  "repository": "lukeed/qss",
+  "description": "A tiny (305B) browser utility for stringifying a query Object.",
+  "unpkg": "dist/qss.min.js",
+  "module": "dist/qss.mjs",
+  "main": "dist/qss.js",
+  "types": "qss.d.ts",
+  "license": "MIT",
+  "exports": {
+    ".": {
+      "types": "./qss.d.ts",
+      "import": "./dist/qss.mjs",
+      "require": "./dist/qss.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "*.d.ts",
+    "dist"
+  ],
+  "author": {
+    "name": "Luke Edwards",
+    "email": "luke.edwards05@gmail.com",
+    "url": "https://lukeed.com"
+  },
+  "engines": {
+    "node": ">=4"
+  },
+  "scripts": {
+    "build": "bundt",
+    "test": "tape test/*.js | tap-spec"
+  },
+  "keywords": [
+    "qs",
+    "query",
+    "string",
+    "browser",
+    "stringify",
+    "querystring",
+    "query-string",
+    "parameter",
+    "encode",
+    "param"
+  ],
+  "devDependencies": {
+    "bundt": "0.2.1",
+    "tap-spec": "^5.0.0",
+    "tape": "^4.9.1"
+  }
+}
