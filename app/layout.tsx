@@ -40,10 +40,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <Head>
-      <meta name="viewport" content="initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, width=device-width, height=device-height, target-densitydpi=device-dpi">
-        <meta name="robots" content="index, follow" />
-        <meta name="author" content="Anil Unni" />
-        <link rel="canonical" href="https://anilunni.me" />
+        <meta name="viewport" content="initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, width=device-width, height=device-height, target-densitydpi=device-dpi"/>
+          <meta name="robots" content="index, follow" />
+          <meta name="author" content="Anil Unni" />
+          <link rel="canonical" href="https://anilunni.me" />
       </Head>
       <body className={inter.className}>{children}</body>
     </html>
