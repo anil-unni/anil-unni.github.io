@@ -1,7 +1,7 @@
 "use client";
 
 import { FlipWords } from "@/components/ui/flip-words";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { FaGithub, FaLinkedin, FaEnvelope, FaMoon, FaSun } from "react-icons/fa";
 import { Poppins } from 'next/font/google';
 import { motion } from 'framer-motion';
@@ -14,17 +14,30 @@ export default function FlipWordsDemo() {
     "Backend Developer",
     "Tech Enthusiast",
     "React Developer",
-    "Problem Solver",
-    "FastAPI Expert",
-    "Cloud Architect",
   ];
 
-  const toggleTheme = () => setIsDarkMode(!isDarkMode);
+  // Function to toggle theme and save to local storage
+  const toggleTheme = () => {
+    const newTheme = !isDarkMode;
+    setIsDarkMode(newTheme);
+    localStorage.setItem("theme", newTheme ? "dark" : "light");
+  };
+
+  // Use effect to set the initial theme based on local storage or system preference
+  useEffect(() => {
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme) {
+      setIsDarkMode(savedTheme === "dark");
+    } else {
+      const prefersDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches;
+      setIsDarkMode(prefersDarkMode);
+    }
+  }, []);
 
   return (
     <div
       className={`flex flex-col justify-between h-screen px-4 md:px-6 lg:px-12 ${isDarkMode ? "bg-black text-white" : "bg-white text-black"
-        } ${poppins.className} transition-all duration-500`}
+        } ${poppins.className} overflow-hidden`}
     >
       {/* Theme Toggle Button */}
       <div className="w-full flex justify-end items-start py-4">
@@ -43,7 +56,7 @@ export default function FlipWordsDemo() {
       </div>
 
       {/* Main Content */}
-      <div className="flex flex-col items-start mt-10 ml-6 md:ml-16 lg:ml-20 max-w-full">
+      <div className="flex flex-col items-start mt-10 ml-6 md:ml-16 lg:ml-20 flex-grow max-w-full">
         <h1 className="text-5xl md:text-5xl lg:text-6xl xl:text-7xl font-normal leading-tight">
           Hi,
         </h1>
