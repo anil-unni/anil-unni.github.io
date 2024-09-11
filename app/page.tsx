@@ -68,7 +68,7 @@ export default function FlipWordsDemo() {
           I’m <span>Anil Unni</span>
         </h1>
         <div className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-extralight flex flex-row flex-wrap gap-2 mt-4">
-          A <FlipWords words={words} />
+          A<FlipWords words={words} />
         </div>
       </div>
 
