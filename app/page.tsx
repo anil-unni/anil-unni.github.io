@@ -39,7 +39,7 @@ export default function FlipWordsDemo() {
 
   return (
     <div
-      className={`flex flex-col justify-between h-screen px-4 md:px-6 lg:px-12 ${isDarkMode ? "bg-black text-white" : "bg-white text-black"
+      className={`flex flex-col justify-between h-svh px-4 md:px-6 lg:px-12 ${isDarkMode ? "bg-black text-white" : "bg-white text-black"
         } ${poppins.className} transition-all duration-500`}
       style={{ overflow: 'hidden' }} // Prevent scrolling
     >
