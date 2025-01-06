@@ -11,13 +11,16 @@ const poppins = Poppins({ subsets: ['latin'], weight: ['400', '600'] });
 export default function FlipWordsDemo() {
   const [isDarkMode, setIsDarkMode] = useState(false);
   const words = [
-    "Backend Developer",
-    "Tech Enthusiast",
-    "React Developer",
-    "Problem Solver",
-    "FastAPI Expert",
-    "Cloud Architect",
-  ];
+  "Backend Developer",
+  "Tech Enthusiast",
+  "Full-Stack Developer",
+  "Problem Solver",
+  "System Designer",
+  "Database Administrator",
+  "Data Analyst",
+  "Web Developer",
+  "Technical Consultant"
+];
 
   // Function to toggle theme and save to local storage
   const toggleTheme = () => {
