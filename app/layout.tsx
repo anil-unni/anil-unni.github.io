@@ -6,29 +6,65 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Anil Unni - Expert Web Developer from Kerala, India",
-  description: "Welcome to the portfolio of Anil Unni, a skilled web developer from Kerala, India. Explore my work, projects, and expertise in web development, including React, Django, and FastAPI.",
-  keywords: "Anil Unni, web developer, portfolio, React, Django, FastAPI, Kerala, India, software development",
+  title: "Anil Unni | Full-Stack Developer & Software Consultant | Kerala",
+  description: "Expert software developer specializing in custom web applications, mobile apps, and enterprise solutions. Proven track record in React, Django, FastAPI development. Available for freelance projects.",
+  keywords: [
+    "full stack developer",
+    "software consultant",
+    "react developer",
+    "django developer",
+    "fastapi expert",
+    "web application development",
+    "mobile app development",
+    "freelance developer kerala",
+    "software development services",
+    "custom software solutions",
+    "hire developer india",
+    "enterprise software development",
+    "anil unni",
+    "kerala software developer",
+    "remote developer",
+  ].join(", "),
+  
   openGraph: {
-    title: "Anil Unni - Expert Web Developer from Kerala, India",
-    description: "Explore the portfolio of Anil Unni, showcasing expertise in web development technologies like React, Django, and FastAPI.",
+    title: "Hire Anil Unni | Expert Software Developer & Consultant",
+    description: "Transform your business with custom software solutions. Specialized in React, Django, FastAPI, and full-stack development. Let's build something amazing together.",
     url: "https://anilunni.me",
-    siteName: "Anil Unni Portfolio",
+    siteName: "Anil Unni - Software Development Services",
     images: [
       {
-        url: "https://anilunni.me",
-        width: 1200,
+        url: "https://about.me/cdn-cgi/image/q=80,dpr=1,f=auto,fit=cover,w=105,h=70,gravity=0.281x0.212/https://assets.about.me/background/users/a/n/i/anilunni_1739437084_463.jpg",
         height: 630,
-        alt: "Anil Unni - Web Developer"
+        alt: "Anil Unni - Professional Software Developer and Consultant"
       }
     ],
+    locale: "en_US",
     type: "website",
   },
+
   twitter: {
     card: "summary_large_image",
     site: "@anilunni123",
-    title: "Anil Unni - Expert Web Developer from Kerala, India",
-    description: "Explore the portfolio of Anil Unni, showcasing expertise in web development technologies like React, Django, and FastAPI.",
+    creator: "@anilunni123",
+    title: "Hire Expert Software Developer | Web & Mobile Solutions",
+    description: "Need a professional developer? I create custom web applications, mobile apps, and enterprise solutions. Expertise in React, Django, and FastAPI.",
+    images: ["https://about.me/cdn-cgi/image/q=80,dpr=1,f=auto,fit=cover,w=105,h=70,gravity=0.281x0.212/https://assets.about.me/background/users/a/n/i/anilunni_1739437084_463.jpg"],
+  },
+
+  alternates: {
+    canonical: "https://anilunni.me",
+  },
+
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
   },
 };
 
