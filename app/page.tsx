@@ -52,7 +52,7 @@ export default function MinimalPortfolio() {
       {/* Lanyard Container */}
       {showLanyard && (
         <div className="absolute inset-0 w-full h-full" style={{ zIndex: 50 }}>
-          <Lanyard position={[10, 0, 15]} gravity={[0, -20, 0]} transparent={true} />
+          <Lanyard position={[0, 0, 15]} gravity={[0, -20, 0]} transparent={true} />
         </div>
       )}
 
