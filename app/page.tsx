@@ -48,62 +48,59 @@ export default function MinimalPortfolio() {
         style={{ zIndex: 0 }}
       />
 
+      {/* Lanyard Container */}
+      <div className="absolute inset-0 w-full h-full" style={{ zIndex: 50 }}>
+        <Lanyard
+          position={[10, 0, 15]}
+          gravity={[0, -20, 0]}
+          transparent={true}
+        />
+      </div>
+
+      {/* Main Content */}
+      <main className={`relative ${poppins.className} min-h-screen flex flex-col`} style={{ zIndex: 2 }}>
+        {/* Center Content */}
+        <div className="flex flex-1 items-center justify-start h-full px-4 sm:px-6 md:px-12">
+          <div className="w-full max-w-4xl mx-auto">
+            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="space-y-4 text-center sm:text-left">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-gray-900 dark:text-white font-light">
+                Hi, I'm{' '}
+                <span className="font-normal">Anil Unni</span>
+              </h1>
+              <div className="text-lg sm:text-xl md:text-2xl text-gray-700 dark:text-gray-300 font-light flex justify-center sm:justify-start gap-2">
+                A <FlipWords words={words} />
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </main>
+
       {/* Floating Controls Container */}
-      <div className="fixed top-0 left-0 w-full px-6 py-4 flex justify-between items-center" style={{ zIndex: 1000 }}>
-        {/* Social Links - Now at the top left */}
+      <div className="fixed bottom-4 left-0 w-full px-4 sm:px-6 py-4 flex flex-row justify-between items-center gap-4" style={{ zIndex: 1000 }}>
+        {/* Social Links */}
         <motion.div
           className="flex gap-4"
-          initial={{ opacity: 0, y: -20 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
         >
-          <a
-            href="mailto:anilunni@outlook.com"
-            className="p-2 rounded-full bg-gray-100/80 dark:bg-gray-800/80 backdrop-blur-sm
-              text-gray-600 dark:text-gray-400 
-              hover:text-blue-600 dark:hover:text-blue-400
-              transition-all duration-200"
-            aria-label="Email"
-          >
+          <a href="mailto:anilunni@outlook.com" className="p-2 rounded-full bg-gray-100/80 dark:bg-gray-800/80 backdrop-blur-sm text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-200" aria-label="Email">
             <FaEnvelope className="w-5 h-5" />
           </a>
-
-          <a
-            href="https://github.com/anil-unni"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="p-2 rounded-full bg-gray-100/80 dark:bg-gray-800/80 backdrop-blur-sm
-              text-gray-600 dark:text-gray-400 
-              hover:text-blue-600 dark:hover:text-blue-400
-              transition-all duration-200"
-            aria-label="GitHub"
-          >
+          <a href="https://github.com/anil-unni" target="_blank" rel="noopener noreferrer" className="p-2 rounded-full bg-gray-100/80 dark:bg-gray-800/80 backdrop-blur-sm text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-200" aria-label="GitHub">
             <FaGithub className="w-5 h-5" />
           </a>
-
-          <a
-            href="https://linkedin.com/in/anilunni"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="p-2 rounded-full bg-gray-100/80 dark:bg-gray-800/80 backdrop-blur-sm
-              text-gray-600 dark:text-gray-400 
-              hover:text-blue-600 dark:hover:text-blue-400
-              transition-all duration-200"
-            aria-label="LinkedIn"
-          >
+          <a href="https://linkedin.com/in/anilunni" target="_blank" rel="noopener noreferrer" className="p-2 rounded-full bg-gray-100/80 dark:bg-gray-800/80 backdrop-blur-sm text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-200" aria-label="LinkedIn">
             <FaLinkedin className="w-5 h-5" />
           </a>
         </motion.div>
 
-        {/* Theme Toggle Button - Now at the top right */}
+        {/* Theme Toggle Button */}
         <motion.button
           onClick={handleThemeToggle}
-          className="p-2 rounded-full 
-            bg-gray-100/80 dark:bg-gray-800/80 
-            hover:bg-gray-200/80 dark:hover:bg-gray-700/80
-            backdrop-blur-sm transition-all duration-200"
+          className="p-2 rounded-full bg-gray-100/80 dark:bg-gray-800/80 hover:bg-gray-200/80 dark:hover:bg-gray-700/80 backdrop-blur-sm transition-all duration-200"
           aria-label="Toggle theme"
-          initial={{ opacity: 0, y: -20 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
         >
           {isDarkMode ? (
@@ -113,48 +110,6 @@ export default function MinimalPortfolio() {
           )}
         </motion.button>
       </div>
-
-      {/* Lanyard Container */}
-      <div
-        className="absolute inset-0 w-full h-full"
-        style={{ zIndex: 50 }}
-      >
-        <Lanyard
-          position={[0, 0, 15]}
-          gravity={[0, -20, 0]}
-          transparent={true}
-        />
-      </div>
-
-      {/* Main Content */}
-      <main
-        className={`relative ${poppins.className} min-h-screen flex flex-col`}
-        style={{ zIndex: 2 }}
-      >
-        {/* Center Content */}
-        <div className="flex-1 flex items-center">
-          <div className="w-full max-w-4xl mx-auto px-6 md:px-12">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="space-y-4"
-            >
-              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl 
-                text-gray-900 dark:text-white font-light">
-                Hi, I'm{' '}
-                <span className="font-normal">
-                  Anil Unni
-                </span>
-              </h1>
-
-              <div className="text-xl sm:text-2xl md:text-3xl 
-                text-gray-700 dark:text-gray-300 font-light flex gap-2">
-                A <FlipWords words={words} />
-              </div>
-            </motion.div>
-          </div>
-        </div>
-      </main>
     </div>
   );
 }
