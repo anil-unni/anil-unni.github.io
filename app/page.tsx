@@ -1,7 +1,7 @@
 "use client"
 import React, { useState, useEffect } from "react";
 import { FlipWords } from "@/components/ui/flip-words";
-import { FaGithub, FaLinkedin, FaEnvelope, FaMoon, FaSun } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaEnvelope, FaMoon, FaSun, FaIdCard } from "react-icons/fa";
 import { Poppins } from 'next/font/google';
 import { motion } from 'framer-motion';
 import Lanyard from "@/components/Lanyard/Lanyard";
@@ -14,12 +14,13 @@ const poppins = Poppins({
 
 export default function MinimalPortfolio() {
   const [isDarkMode, setIsDarkMode] = useState(false);
+  const [showLanyard, setShowLanyard] = useState(true);
 
   const words = [
-    "Backend Developer",
-    "Full-Stack Developer",
-    "System Designer",
-    "Problem Solver"
+    "Innovator",
+    "Tech Enthusiast",
+    "Creative Thinker",
+    "Lifelong Learner"
   ];
 
   useEffect(() => {
@@ -49,13 +50,11 @@ export default function MinimalPortfolio() {
       />
 
       {/* Lanyard Container */}
-      <div className="absolute inset-0 w-full h-full" style={{ zIndex: 50 }}>
-        <Lanyard
-          position={[10, 0, 15]}
-          gravity={[0, -20, 0]}
-          transparent={true}
-        />
-      </div>
+      {showLanyard && (
+        <div className="absolute inset-0 w-full h-full" style={{ zIndex: 50 }}>
+          <Lanyard position={[10, 0, 15]} gravity={[0, -20, 0]} transparent={true} />
+        </div>
+      )}
 
       {/* Main Content */}
       <main className={`relative ${poppins.className} min-h-screen flex flex-col`} style={{ zIndex: 2 }}>
@@ -95,21 +94,28 @@ export default function MinimalPortfolio() {
           </a>
         </motion.div>
 
-        {/* Theme Toggle Button */}
-        <motion.button
-          onClick={handleThemeToggle}
-          className="p-2 rounded-full bg-gray-100/80 dark:bg-gray-800/80 hover:bg-gray-200/80 dark:hover:bg-gray-700/80 backdrop-blur-sm transition-all duration-200"
-          aria-label="Toggle theme"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-        >
-          {isDarkMode ? (
-            <FaSun className="w-5 h-5 text-yellow-400" />
-          ) : (
-            <FaMoon className="w-5 h-5 text-gray-600" />
-          )}
-        </motion.button>
+        {/* Theme Toggle and Lanyard Toggle Buttons */}
+        <div className="flex gap-4">
+          <motion.button
+            onClick={() => setShowLanyard(prev => !prev)}
+            className="p-2 rounded-full bg-gray-100/80 dark:bg-gray-800/80 hover:bg-gray-200/80 dark:hover:bg-gray-700/80 backdrop-blur-sm transition-all duration-200 sm:hidden"
+            aria-label="Hide/Show ID Card"
+          >
+            <FaIdCard className="w-5 h-5 text-gray-600 dark:text-gray-400" />
+          </motion.button>
+          <motion.button
+            onClick={handleThemeToggle}
+            className="p-2 rounded-full bg-gray-100/80 dark:bg-gray-800/80 hover:bg-gray-200/80 dark:hover:bg-gray-700/80 backdrop-blur-sm transition-all duration-200"
+            aria-label="Toggle theme"
+          >
+            {isDarkMode ? (
+              <FaSun className="w-5 h-5 text-yellow-400" />
+            ) : (
+              <FaMoon className="w-5 h-5 text-gray-600" />
+            )}
+          </motion.button>
+        </div>
       </div>
     </div>
   );
-}
+} 
