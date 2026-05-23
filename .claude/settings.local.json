@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(Get-ChildItem -Path \"E:\\\\GitHub\\\\anil-unni.github.io\" -Force)",
+      "Bash(Select-Object Name, FullName, PSIsContainer)",
+      "Bash(pnpm exec *)",
+      "Bash(pnpm run *)"
+    ]
+  }
+}
