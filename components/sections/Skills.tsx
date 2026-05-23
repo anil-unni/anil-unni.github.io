@@ -13,7 +13,7 @@ const DISCIPLINES = [
       "Scalable Backend Systems",
       "Responsive Frontends",
     ],
-    desc: "Designing resilient, scalable blueprints. Architecting unified modern ecosystems combining modular frontend layout engines with micro-service based backend routers and relational data layers.",
+    desc: "Architecting unified modern ecosystems combining modular frontend engines with microservice-based backend routers and relational data layers.",
   },
   {
     id: "02",
@@ -23,7 +23,7 @@ const DISCIPLINES = [
       "Team Management",
       "Code Review & Quality Assurance",
     ],
-    desc: "Directing developer operations. Translating complex business criteria into atomic developer tasks, establishing strict quality metrics, and hosting detailed product reviews.",
+    desc: "Translating complex business criteria into atomic developer tasks, establishing strict quality metrics, and hosting detailed product reviews.",
   },
   {
     id: "03",
@@ -32,30 +32,21 @@ const DISCIPLINES = [
       "React, Python, Node.js, SQL",
       "Advanced AI Workflows (Cursor, MCP, LLM integrations)",
     ],
-    desc: "Harnessing cutting-edge developer configurations. Utilizing state-of-the-art context tools, custom Model Context Protocol (MCP) integrations, and developer environments to ship features with high precision.",
+    desc: "Utilizing state-of-the-art context tools, custom Model Context Protocol (MCP) integrations, and developer environments to ship features with high precision.",
   },
 ];
 
-/**
- * @component Skills
- * @description Renders the interactive Disciplines section using an editorial-style accordion list.
- */
 export default function Skills() {
   const [activeTab, setActiveTab] = useState<number>(0);
 
   return (
-    <section id="areas" className="relative py-24 md:py-32 border-b border-border/60">
-      {/* ── Editorial Blueprint Grids ── */}
-      <div className="absolute left-6 md:left-12 lg:left-20 top-0 bottom-0 w-[1px] bg-border/40 pointer-events-none" />
-      <div className="absolute right-6 md:right-12 lg:right-20 top-0 bottom-0 w-[1px] bg-border/40 pointer-events-none" />
-
-      <div className="max-w-[1400px] mx-auto px-10 md:px-20 lg:px-28">
+    <section id="areas" className="py-24 md:py-32 border-b border-border/40">
+      <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-20">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
-          {/* Section Indicator */}
-          <div className="lg:col-span-4 flex flex-col justify-start">
+          <div className="lg:col-span-4">
             <span className="font-mono text-[10px] tracking-[0.3em] uppercase text-muted-foreground/60 mb-6 flex items-center gap-2">
               <span className="w-1.5 h-1.5 rounded-full bg-foreground" />
-              [ 02 // CAPABILITIES ]
+              02 — Capabilities
             </span>
             <h2
               className="font-display font-light text-foreground leading-[1]"
@@ -63,20 +54,16 @@ export default function Skills() {
             >
               Disciplines.
             </h2>
-            <p className="mt-6 text-sm text-muted-foreground leading-relaxed font-sans font-light max-w-xs">
-              A comprehensive technical arsenal and leadership model implemented to guide applications from concept to production.
+            <p className="mt-6 text-sm text-muted-foreground leading-relaxed font-light max-w-xs">
+              A technical arsenal and leadership model to guide applications from concept to production.
             </p>
           </div>
 
-          {/* Accordion Layout */}
-          <div className="lg:col-span-8 flex flex-col border-t border-border/60 lg:pl-8">
+          <div className="lg:col-span-8 flex flex-col border-t border-border/40 lg:pl-8">
             {DISCIPLINES.map((disc, index) => {
               const isOpen = activeTab === index;
               return (
-                <div
-                  key={disc.category}
-                  className="border-b border-border/60 relative"
-                >
+                <div key={disc.category} className="border-b border-border/40">
                   <button
                     onClick={() => setActiveTab(isOpen ? -1 : index)}
                     className="w-full flex items-center justify-between py-6 md:py-8 text-left group transition-colors focus:outline-none"
@@ -89,7 +76,7 @@ export default function Skills() {
                         {disc.category}
                       </h3>
                     </div>
-                    <div className="relative w-4 h-4 flex items-center justify-center">
+                    <div className="relative w-4 h-4 flex items-center justify-center shrink-0">
                       <motion.div
                         animate={{ rotate: isOpen ? 90 : 0 }}
                         transition={{ duration: 0.3, ease: EASE_CUBIC }}
@@ -109,17 +96,17 @@ export default function Skills() {
                         initial={{ height: 0, opacity: 0 }}
                         animate={{ height: "auto", opacity: 1 }}
                         exit={{ height: 0, opacity: 0 }}
-                        transition={{ duration: 0.5, ease: EASE_CUBIC }}
+                        transition={{ duration: 0.45, ease: EASE_CUBIC }}
                         className="overflow-hidden"
                       >
                         <div className="pb-8 pl-12 md:pl-16 pr-4 grid grid-cols-1 md:grid-cols-12 gap-6">
-                          <p className="md:col-span-7 text-xs md:text-sm text-muted-foreground leading-relaxed font-sans font-light">
+                          <p className="md:col-span-7 text-sm text-muted-foreground leading-relaxed font-light">
                             {disc.desc}
                           </p>
-                          <ul className="md:col-span-5 space-y-2 md:pl-6 border-l border-border/40 font-mono text-[10px] tracking-wider text-foreground/80">
+                          <ul className="md:col-span-5 space-y-2 md:pl-6 border-l border-border/40 font-mono text-[10px] tracking-wider text-foreground/70">
                             {disc.items.map((item) => (
                               <li key={item} className="flex items-start gap-2">
-                                <span className="w-1.5 h-1.5 rounded-full bg-foreground/40 mt-1.5 shrink-0" />
+                                <span className="w-1.5 h-1.5 rounded-full bg-foreground/30 mt-1.5 shrink-0" />
                                 <span>{item}</span>
                               </li>
                             ))}

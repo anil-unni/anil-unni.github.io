@@ -15,6 +15,7 @@ interface HeaderProps {
 
 const NAV_LINKS = ["Philosophy", "Areas", "Works", "Contact"] as const;
 
+
 /**
  * @component Header
  * @description Renders the global navigation header containing navigation anchors

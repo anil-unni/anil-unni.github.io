@@ -1,0 +1,38 @@
+# Anil Unni
+
+Lead Engineer & Product Builder specializing in high-performance digital products, scalable enterprise architectures, and developer workflow optimization.
+
+## Info
+- **Role:** Lead Full-Stack Engineer & Technical Lead
+- **Location:** Kerala, India
+- **Focus:** Scalable architectures, developer productivity, AI-assisted workflows, and team leadership
+- **Website:** https://anilunni.me
+- **Email:** anilunni@outlook.com
+- **Socials:**
+  - GitHub: https://github.com/anil-unni
+  - LinkedIn: https://linkedin.com/in/anilunni
+
+## Core Philosophy & Mindset
+Anil bridges the gap between software development and strategic commercial value. He operates under three key pillars:
+1. **Team Leadership:** Guiding high-performance engineering groups, facilitating mentorship, and optimizing technical execution pipelines.
+2. **Enterprise Architecture:** Designing highly resilient backend networks, database architecture, and scalable modern web applications.
+3. **Product Strategy:** Bridging the gap between software specifications and strategic commercial value to deliver memorable products.
+
+## Disciplines & Toolkit
+- **Engineering:** Scalable application blueprints, API design, microservices orchestration, and dynamic UI component development.
+- **Leadership:** Sprint planning, code reviews, technical roadmapping, developer mentoring, and agile methodology.
+- **Toolkit:** Next.js, React, Node.js, TypeScript, Python, Django, FastAPI, SQL, PostgreSQL, Docker, and modern AI development tooling (e.g., Cursor, MCP, LLM integrations).
+
+## Selected Works
+- **Enterprise Business Suite**
+  - *Role/Tags:* ERP, Full-Stack, Lead
+  - *Description:* Architecture and UI development for a comprehensive business management suite featuring HRMS, accounting, and task modules.
+- **FinTax Compliance Platform**
+  - *Role/Tags:* Backend, API, FinTech
+  - *Description:* Engineered backend services and strict compliance adherence for digital tax requirement integrations.
+- **Global Travel Portal**
+  - *Role/Tags:* Web, UI/UX, Booking
+  - *Description:* Development of custom download architectures and secure itinerary generation for a B2B/B2C travel booking suite.
+
+## Resources
+- [Full Text Bio & Deep Details](/llms-full.txt) - Deeper resume entries, architectural essays, and exhaustive technical explanations.

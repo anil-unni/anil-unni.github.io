@@ -53,10 +53,6 @@ export default function Portfolio() {
       ref={containerRef}
       className="relative min-h-screen bg-background text-foreground overflow-hidden"
     >
-      {/* ── ARCHITECTURAL GRID SYSTEM (BACKGROUND LAYOUT LINES) ── */}
-      <div className="absolute left-6 md:left-12 lg:left-20 top-0 bottom-0 w-[1px] bg-border/20 pointer-events-none z-10" />
-      <div className="absolute right-6 md:right-12 lg:right-20 top-0 bottom-0 w-[1px] bg-border/20 pointer-events-none z-10" />
-
       {/* Navigation Shell */}
       <Header
         isDark={isDark}

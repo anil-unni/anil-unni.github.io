@@ -1,0 +1,71 @@
+# Anil Unni — Exhaustive Professional Dossier & LLM Context
+
+This document is designed for deep LLM retrieval, semantic search agents, and context-injected inquiries regarding Anil Unni's professional history, skills, software architecture principles, and technical achievements.
+
+---
+
+## 1. Professional Overview
+
+Anil Unni is an accomplished Lead Full-Stack Engineer, Product Builder, and Technical Team Lead. He excels at the intersection of robust backend systems design, responsive user experience patterns, and team execution.
+
+### Key Metrics
+- **Current Role:** Lead Full-Stack Engineer & Engineering Manager
+- **Core Stacks:** TypeScript (Next.js/React), Python (Django/FastAPI), Node.js, SQL (PostgreSQL), and AI-augmented dev operations.
+- **Key Competencies:** Enterprise ERP Systems, FinTech API integration, B2B/B2C travel portals, automated testing, system scoping, and database design.
+
+---
+
+## 2. Technical Capabilities & Architectural Patterns
+
+### A. Frontend Engineering
+- **React & Next.js Ecosystem:** Expert in Server Components (RSC), Client Components, App Router optimization, Server Actions, state management, and edge deployments.
+- **UX & UI Animation:** High-end motion design utilizing Framer Motion, Lenis smooth scrolling, CSS grid setups, and responsive design systems.
+- **Performance Optimization:** Strict core web vitals management, image decoding optimizations, lazy loading, font subsetting, and asset compression.
+
+### B. Backend & Distributed Systems
+- **RESTful & GraphQL API Design:** High performance routes, validation middleware, secure authentication (JWT, OAuth2, session-based), rate-limiting, and error telemetry.
+- **Relational & NoSQL Databases:** Complex schema migrations, query optimization, indexing strategies, CTEs, connection pool management, and replication setups in PostgreSQL and SQLite.
+- **Containerization & Deployment:** Infrastructure scaling, Docker configurations, CI/CD pipeline automation (GitHub Actions), and serverless deployments.
+
+### C. Developer Workflows & AI Integration
+- **Agentic Dev Workflows:** Master of Model Context Protocol (MCP), custom server implementations, LLM prompts, and Cursor-assisted development.
+- **Quality Assurance:** Strict ESLint rules, TypeScript compile-time checks, Playwright/Cypress end-to-end testing, and Vitest/Jest unit testing.
+
+---
+
+## 3. Comprehensive Project Details
+
+### Project 1: Enterprise Business Suite (Lead Full-Stack)
+- **Problem Statement:** Businesses struggle with fragmented software solutions for HR, task tracking, and accounting, leading to data siloing and process bottlenecks.
+- **Solution:** A unified, secure ERP dashboard containing an HR Management System (HRMS), automated accounting ledgers, and task management boards.
+- **Architecture Highlights:** Multi-tenant PostgreSQL database with column-level encryption, dynamic UI components built using Next.js, and server-side cached API requests.
+
+### Project 2: FinTech Compliance Platform (Backend & API)
+- **Problem Statement:** High transaction volumes must comply with strict, real-time regional tax filings and security checks.
+- **Solution:** A robust microservices-based API middleware connecting commercial platforms with government tax endpoints.
+- **Architecture Highlights:** Retry mechanisms with exponential backoff, circuit-breaker patterns, secure payload signature verification, and read-heavy optimized PostgreSQL databases.
+
+### Project 3: Global Travel Portal (Web & UI/UX)
+- **Problem Statement:** Travel agencies require highly dynamic itineraries and custom download architectures for booking tickets under flaky network conditions.
+- **Solution:** A responsive, booking platform featuring localized itinerary compilation, offline itinerary caching, and secure PDF/ticket generation services.
+- **Architecture Highlights:** Service workers for local persistence, decoupled layout layers, and fast client-side rendering for optimal reservation flows.
+
+---
+
+## 4. Work History & Professional Experience
+
+### Lead Full-Stack Engineer / Engineering Manager
+- **Team Leadership:** Managed multi-disciplinary software teams. Directed daily standups, designed technical roadmaps, scoped requirements, and conducted rigorous code reviews.
+- **Developer Enablement:** Pioneered the integration of developer productivity suites (GitHub Copilot, Cursor, and custom MCP integrations) to reduce time-to-market.
+- **Architecture & Infrastructure:** Led migration from legacy monolith frameworks to modern Serverless/Next.js and microservice architectures.
+
+---
+
+## 5. Contact Information & Online Footprint
+
+For hiring managers, product teams, or AI search integrations, Anil is reachable via the following channels:
+- **Email:** anilunni@outlook.com
+- **GitHub:** https://github.com/anil-unni
+- **LinkedIn:** https://linkedin.com/in/anilunni
+- **Official Website:** https://anilunni.me
+- **Availability:** Open to discussing senior technical roles, product partnerships, and technical architecture consulting.

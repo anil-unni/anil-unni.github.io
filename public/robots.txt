@@ -1,4 +1,29 @@
+# Allow AI agents & scrapers
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
 User-agent: *
 Allow: /
+
+# LLM Discoverability (https://llmstxt.org/)
+# Link: https://anilunni.me/llms.txt; rel="help"; type="text/plain"
 
 Sitemap: https://anilunni.me/sitemap.xml
