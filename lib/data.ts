@@ -1,10 +1,3 @@
-/**
- * @file data.ts
- * @description Decoupled static data configurations for the portfolio application.
- * This structure enables clean code separation and eases content modifications
- * for developers and LLMs alike.
- */
-
 export interface SkillGroup {
   category: string;
   items: string[];
@@ -41,7 +34,7 @@ export const SKILLS: SkillGroup[] = [
   },
   {
     category: "Leadership",
-    items: ["Technical Scoping", "Team Management", "Code Review & Quality Assurance"],
+    items: ["Technical Scoping", "Team Management", "Code Review & Quality"],
   },
   {
     category: "Toolkit",
@@ -55,7 +48,7 @@ export const PROJECTS: Project[] = [
     title: "Enterprise Business Suite",
     category: "Management Suite",
     description:
-      "Architected and led the development of a comprehensive management suite featuring unified modules for ERP, Accounting, and HRMS with complex database logic.",
+      "End-to-end ERP, Accounting & HRMS platform with complex database architecture and unified module design.",
     tech: ["Full-Stack", "Architecture", "Lead"],
     href: "#",
   },
@@ -64,7 +57,7 @@ export const PROJECTS: Project[] = [
     title: "FinTech Compliance Platform",
     category: "Tax & Compliance",
     description:
-      "Engineered secure web and backend solutions tailored for strict regional tax requirements, featuring secure government digital integrations.",
+      "Secure backend for regional tax compliance with government digital integrations and strict audit trails.",
     tech: ["Backend", "FinTech", "Integration"],
     href: "#",
   },
@@ -73,7 +66,7 @@ export const PROJECTS: Project[] = [
     title: "Global Travel Portal",
     category: "Travel Tech",
     description:
-      "Developed a dynamic travel platform supporting complex itinerary generation, secure settings, and end-to-end user workflows.",
+      "B2B/B2C travel booking platform with dynamic itinerary generation and end-to-end secure user flows.",
     tech: ["Portal", "UI/UX", "Scalability"],
     href: "#",
   },

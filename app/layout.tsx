@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Cormorant_Garamond, Inter } from "next/font/google";
 import "./globals.css";
-import LenisProvider from "@/components/LenisProvider";
+import SmoothScroll from "@/components/ui/SmoothScroll";
 
 const cormorant = Cormorant_Garamond({
   subsets: ["latin"],
@@ -21,10 +21,7 @@ const inter = Inter({
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#F4F4F0" },
-    { media: "(prefers-color-scheme: dark)", color: "#111111" },
-  ],
+  themeColor: "#070709",
 };
 
 export const metadata: Metadata = {
@@ -213,9 +210,7 @@ export default function RootLayout({
         />
       </head>
       <body className={`${cormorant.variable} ${inter.variable} antialiased`}>
-        <LenisProvider>
-          {children}
-        </LenisProvider>
+        <SmoothScroll>{children}</SmoothScroll>
       </body>
     </html>
   );

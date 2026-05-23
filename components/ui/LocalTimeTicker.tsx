@@ -1,49 +1,33 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 
-/**
- * @component LocalTimeTicker
- * @description A performance-isolated, hydration-safe clock ticker.
- * Updates local time (IST) in Kerala, India every second. By encapsulating this
- * state internally, we prevent the entire main portfolio page from re-rendering
- * on every clock tick.
- */
 export default function LocalTimeTicker() {
-  const [currentTime, setCurrentTime] = useState<string>("");
-  const [mounted, setMounted] = useState<boolean>(false);
+  const [time, setTime] = useState("");
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
     setMounted(true);
-    const updateTime = () => {
-      const options: Intl.DateTimeFormatOptions = {
-        timeZone: "Asia/Kolkata",
-        hour: "2-digit",
-        minute: "2-digit",
-        second: "2-digit",
-        hour12: false,
-      };
-      setCurrentTime(new Intl.DateTimeFormat("en-US", options).format(new Date()));
-    };
-
-    updateTime();
-    const interval = setInterval(updateTime, 1000);
-    return () => clearInterval(interval);
+    const fmt = new Intl.DateTimeFormat("en-US", {
+      timeZone: "Asia/Kolkata",
+      hour: "2-digit",
+      minute: "2-digit",
+      second: "2-digit",
+      hour12: false,
+    });
+    const tick = () => setTime(fmt.format(new Date()));
+    tick();
+    const id = setInterval(tick, 1000);
+    return () => clearInterval(id);
   }, []);
 
-  if (!mounted || !currentTime) {
-    return (
-      <div className="flex items-center gap-2.5 px-3 py-1.5 border border-border/30 rounded-full bg-card/20 backdrop-blur-sm font-mono text-[9px] tracking-widest text-muted-foreground/80 uppercase">
-        <span className="w-1.5 h-1.5 rounded-full bg-emerald-400/40" />
-        KERALA IND // IST --:--:--
-      </div>
-    );
-  }
-
   return (
-    <div className="flex items-center gap-2.5 px-3 py-1.5 border border-border/30 rounded-full bg-card/20 backdrop-blur-sm font-mono text-[9px] tracking-widest text-muted-foreground/80 uppercase">
-      <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-      KERALA IND // IST {currentTime}
+    <div className="flex items-center gap-2.5 text-label text-white/22">
+      <span
+        className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"
+        style={{ opacity: mounted ? 1 : 0.3 }}
+      />
+      <span>Kerala IND // IST {mounted ? time : "--:--:--"}</span>
     </div>
   );
 }

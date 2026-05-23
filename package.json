@@ -29,6 +29,12 @@
     "tailwindcss-animate": "^1.0.7",
     "three": "^0.184.0"
   },
+  "pnpm": {
+    "overrides": {
+      "@types/react": "^19.0.0",
+      "@types/react-dom": "^19.0.0"
+    }
+  },
   "devDependencies": {
     "@tailwindcss/postcss": "^4.3.0",
     "@types/node": "^25.9.1",

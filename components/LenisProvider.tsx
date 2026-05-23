@@ -5,7 +5,7 @@ import React from "react";
 
 export default function LenisProvider({ children }: { children: React.ReactNode }) {
   return (
-    <ReactLenis root options={{ lerp: 0.05, duration: 1.6, smoothWheel: true }}>
+    <ReactLenis root options={{ lerp: 0.075, duration: 1.8, smoothWheel: true }}>
       {children}
     </ReactLenis>
   );

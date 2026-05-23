@@ -1,116 +1,74 @@
 "use client";
 
-import React from "react";
 import { motion } from "framer-motion";
-import { FaArrowRight } from "react-icons/fa";
-import RevealText from "@/components/ui/reveal-text";
+
+const EASE_EXPO = [0.16, 1, 0.3, 1] as const;
 
 export default function Hero() {
   return (
-    <section
-      id="hero"
-      className="relative min-h-screen flex items-center pt-20 border-b border-border/40"
-    >
-      <div className="w-full px-6 md:px-12 lg:px-20 py-16">
-        <div className="max-w-3xl">
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="mb-8 flex items-center gap-2"
-          >
-            <span className="w-1.5 h-1.5 rounded-full bg-foreground inline-block" />
-            <span className="font-mono text-[10px] tracking-[0.3em] uppercase text-muted-foreground">
-              Lead Full-Stack Engineer
-            </span>
-          </motion.div>
+    <section className="relative h-full bg-void flex flex-col px-6 md:px-12 lg:px-20 pt-24 md:pt-28 pb-10 md:pb-14 overflow-hidden">
 
-          <h1
-            className="font-display font-light tracking-tight text-foreground leading-[0.85]"
-            style={{ fontSize: "clamp(4rem, 12vw, 9rem)" }}
-          >
-            <RevealText delay={0.15}>ANIL</RevealText>
-            <RevealText delay={0.3}>UNNI.</RevealText>
-          </h1>
+      {/* Ambient orb */}
+      <div
+        className="animate-float absolute pointer-events-none rounded-full"
+        style={{
+          top: "-10%", right: "-10%",
+          width: "min(640px, 100vw)", height: "min(640px, 100vw)",
+          background: "radial-gradient(circle, rgba(110,85,210,0.13) 0%, transparent 65%)",
+          filter: "blur(90px)",
+        }}
+      />
 
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.5 }}
-            className="mt-4 flex items-center gap-3"
-          >
-            <span className="w-8 h-[1px] bg-foreground/60" />
-            <span className="font-display text-xl md:text-2xl font-medium italic text-foreground/70">
-              Lead Engineer — Product Builder
-            </span>
-          </motion.div>
-
-          <motion.p
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.65 }}
-            className="mt-8 text-sm md:text-base text-muted-foreground leading-relaxed max-w-xl"
-          >
-            I build high-end digital experiences and direct technical teams — combining an entrepreneurial mindset with strict engineering discipline.
-          </motion.p>
-
-          <motion.div
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.8 }}
-            className="mt-10 flex flex-wrap gap-4"
-          >
-            <a
-              href="#works"
-              className="group inline-flex items-center gap-3 px-7 py-3 rounded-full bg-foreground text-background font-mono text-xs tracking-wider uppercase hover:opacity-90 transition-opacity"
-            >
-              View Works
-              <FaArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
-            </a>
-            <a
-              href="#contact"
-              className="inline-flex items-center px-7 py-3 rounded-full border border-border hover:border-foreground/40 font-mono text-xs tracking-wider uppercase transition-colors"
-            >
-              Get in Touch
-            </a>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: 1 }}
-            className="mt-16 pt-8 border-t border-border/40 flex items-center gap-4 text-xs font-mono text-muted-foreground/60"
-          >
-            <span>CONNECT:</span>
-            {[
-              { href: "https://github.com/anil-unni", label: "GITHUB" },
-              { href: "https://linkedin.com/in/anilunni", label: "LINKEDIN" },
-            ].map(({ href, label }) => (
-              <a
-                key={label}
-                href={href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-foreground transition-colors underline underline-offset-4"
+      {/* ── Zone 2: Name (grows to fill remaining height) ── */}
+      <div className="relative z-10 flex-1 flex flex-col justify-center">
+        <div aria-label="Anil Unni">
+          {(["ANIL", "UNNI."] as const).map((word, i) => (
+            <div key={word} style={{ overflow: "hidden" }}>
+              <motion.h1
+                initial={{ y: "105%" }}
+                animate={{ y: 0 }}
+                transition={{ duration: 1.25, ease: EASE_EXPO, delay: 0.22 + i * 0.13 }}
+                className="font-display font-light text-white"
+                style={{ fontSize: "clamp(72px, 16.5vw, 240px)", lineHeight: 0.9, letterSpacing: "-0.02em" }}
               >
-                {label}
-              </a>
-            ))}
-          </motion.div>
+                {word}
+              </motion.h1>
+            </div>
+          ))}
         </div>
       </div>
 
+      {/* ── Zone 3: Role + CTAs (pinned to bottom) ── */}
       <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.2 }}
-        className="absolute bottom-8 left-6 md:left-12 lg:left-20 flex items-center gap-3 pointer-events-none"
+        initial={{ opacity: 0, y: 14 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.9, ease: EASE_EXPO, delay: 0.85 }}
+        className="relative z-10 flex flex-col sm:flex-row sm:items-end justify-between gap-5 sm:gap-10"
       >
-        <span className="text-[8px] font-mono tracking-[0.4em] uppercase text-muted-foreground/50">
-          scroll
-        </span>
-        <div className="w-10 h-[1px] bg-border/60" />
+        <p className="text-white/28 leading-snug" style={{ fontSize: "clamp(11px, 1vw, 13px)" }}>
+          Lead Full-Stack Engineer
+          <br />
+          &amp; Product Architect
+        </p>
+
+        <div className="flex items-center gap-7">
+          {[
+            { label: "View Works",   href: "#works"   },
+            { label: "Get in Touch", href: "#contact" },
+          ].map(({ label, href }) => (
+            <a
+              key={label}
+              href={href}
+              className="group flex items-center gap-1.5 text-white/30 hover:text-white/75 transition-colors duration-300"
+              style={{ fontSize: "clamp(10px, 1vw, 12px)" }}
+            >
+              <span className="text-label">{label}</span>
+              <span className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300" style={{ fontSize: "10px" }}>↗</span>
+            </a>
+          ))}
+        </div>
       </motion.div>
+
     </section>
   );
 }
