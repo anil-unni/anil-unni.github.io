@@ -1,9 +1,18 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'export',
-  reactStrictMode: true,
   images: {
-    unoptimized: true,
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "res.cloudinary.com",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "picsum.photos",
+        pathname: "/**",
+      },
+    ],
   },
 };
 

@@ -1,73 +1,125 @@
-export interface SkillGroup {
-  category: string;
-  items: string[];
-}
-
-export interface Project {
+export interface ERPTileData {
   id: string;
   title: string;
-  category: string;
-  description: string;
-  tech: string[];
-  href: string;
+  descriptor: string;
+  metric?: string;
+  icon: string;
+  span?: "wide" | "tall" | "default";
 }
 
-export const TECHS: string[] = [
-  "React",
-  "Next.js",
-  "TypeScript",
-  "Python",
-  "Django",
-  "FastAPI",
-  "Node.js",
-  "SQL",
-  "PostgreSQL",
-  "Docker",
-  "Enterprise Architecture",
-  "AI-Assisted Workflows",
+export const erpTiles: ERPTileData[] = [
+  {
+    id: "inventory",
+    title: "Inventory Control",
+    descriptor: "Real-time stock visibility with multi-warehouse valuation",
+    metric: "99.8% accuracy",
+    icon: "package",
+    span: "wide",
+  },
+  {
+    id: "reporting",
+    title: "Financial Reporting",
+    descriptor: "Consolidated P&L, balance sheet, and cash flow in seconds",
+    metric: "3s generation",
+    icon: "bar-chart",
+  },
+  {
+    id: "workflow",
+    title: "Workflow Automation",
+    descriptor: "Multi-level approval chains with conditional routing and SLA tracking",
+    metric: "60% faster sign-off",
+    icon: "git-branch",
+    span: "tall",
+  },
+  {
+    id: "integrations",
+    title: "System Integrations",
+    descriptor: "REST & webhook bridges across payment gateways, logistics, and CRMs",
+    metric: "40+ connectors",
+    icon: "plug",
+  },
+  {
+    id: "hr",
+    title: "HR & Payroll",
+    descriptor: "Employee lifecycle, attendance, and statutory compliance modules",
+    icon: "users",
+  },
+  {
+    id: "sop",
+    title: "SOP Codification",
+    descriptor: "Digital standard operating procedures with audit trails and versioning",
+    metric: "ISO-aligned",
+    icon: "clipboard-list",
+    span: "wide",
+  },
+  {
+    id: "procurement",
+    title: "Procurement",
+    descriptor: "Purchase requisition to payment with vendor scorecards",
+    icon: "shopping-cart",
+  },
+  {
+    id: "analytics",
+    title: "Business Analytics",
+    descriptor: "Custom KPI dashboards with drill-down from summary to transaction",
+    metric: "Live data",
+    icon: "trending-up",
+  },
 ];
 
-export const SKILLS: SkillGroup[] = [
+export interface HobbyModule {
+  id: string;
+  title: string;
+  descriptor: string;
+  icon: string;
+}
+
+export const hobbyModules: HobbyModule[] = [
   {
-    category: "Engineering",
-    items: ["Full-Stack Architecture", "Scalable Backend Systems", "Responsive Frontends"],
+    id: "detailing",
+    title: "Automotive Detailing",
+    descriptor: "Paint correction, ceramic coating, and PPF application on daily drivers",
+    icon: "car",
   },
   {
-    category: "Leadership",
-    items: ["Technical Scoping", "Team Management", "Code Review & Quality"],
+    id: "hardware",
+    title: "Hardware Modding",
+    descriptor: "Custom PC builds, thermal management, and bespoke cable sleeving",
+    icon: "cpu",
   },
   {
-    category: "Toolkit",
-    items: ["React, Python, Node.js, SQL", "AI-assisted workflows (Cursor, MCP, LLMs)"],
+    id: "keyboards",
+    title: "Mechanical Keyboards",
+    descriptor: "Hand-lubed switches, custom PCB layouts, and acoustic foam dampening",
+    icon: "keyboard",
+  },
+  {
+    id: "audio",
+    title: "Hi-Fi Audio",
+    descriptor: "Tube amplifier restoration and vinyl playback chain optimization",
+    icon: "headphones",
   },
 ];
 
-export const PROJECTS: Project[] = [
+export const socialLinks = {
+  github: "https://github.com/anil-unni",
+  linkedin: "https://linkedin.com/in/anil-unni",
+  instagram: "https://instagram.com/anilunni_",
+};
+
+export const heroProjects = [
   {
-    id: "01",
-    title: "Enterprise Business Suite",
-    category: "Management Suite",
-    description:
-      "End-to-end ERP, Accounting & HRMS platform with complex database architecture and unified module design.",
-    tech: ["Full-Stack", "Architecture", "Lead"],
-    href: "#",
+    id: "uae-mumbai",
+    title: "UAE → Mumbai Server Recovery",
+    outcome: "Full data recovery with zero loss across a 72-hour critical incident",
+    metric: "0 data loss",
+    tags: ["Incident Response", "Infrastructure"],
   },
   {
-    id: "02",
-    title: "FinTech Compliance Platform",
-    category: "Tax & Compliance",
-    description:
-      "Secure backend for regional tax compliance with government digital integrations and strict audit trails.",
-    tech: ["Backend", "FinTech", "Integration"],
-    href: "#",
-  },
-  {
-    id: "03",
-    title: "Global Travel Portal",
-    category: "Travel Tech",
-    description:
-      "B2B/B2C travel booking platform with dynamic itinerary generation and end-to-end secure user flows.",
-    tech: ["Portal", "UI/UX", "Scalability"],
-    href: "#",
+    id: "sop-implementation",
+    title: "Enterprise SOP Implementation",
+    outcome: "Digitised 200+ SOPs across 8 departments, reducing onboarding time by 40%",
+    metric: "40% faster onboarding",
+    tags: ["Process Design", "ERP"],
   },
 ];

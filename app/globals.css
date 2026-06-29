@@ -1,103 +1,127 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-@theme {
-  /* ─── Fonts ──────────────────────────────────────── */
-  --font-sans: var(--font-sans), system-ui, sans-serif;
-  --font-display: var(--font-display), Georgia, serif;
+/* Light theme (system default) */
+:root {
+  --background: 40 15% 97%;
+  --surface: 40 10% 93%;
+  --surface-raised: 40 8% 89%;
+  --border: 0 0% 84%;
+  --foreground: 0 0% 7%;
+  --muted: 0 0% 46%;
+  --accent: 0 72% 45%;
+  --accent-foreground: 40 15% 97%;
+  --error: 0 72% 50%;
+}
 
-  /* ─── Brand Color Palette ────────────────────────── */
-  --color-void: #070709;
-  --color-surface: #0D0D10;
-  --color-chalk: #F8F8F5;
-  --color-chalk-2: #F0F0EA;
-
-  /* ─── Animations ─────────────────────────────────── */
-  --animate-float: float 9s ease-in-out infinite;
-  --animate-float-b: float 9s ease-in-out infinite -4.5s;
-  --animate-glow-pulse: glow-pulse 4s ease-in-out infinite;
-  --animate-scroll-bounce: scroll-bounce 1.8s ease-in-out infinite;
-
-  @keyframes float {
-    0%, 100% { transform: translateY(0px) rotate(0deg); }
-    33%       { transform: translateY(-28px) rotate(1.2deg); }
-    66%       { transform: translateY(-12px) rotate(-0.6deg); }
-  }
-  @keyframes glow-pulse {
-    0%, 100% { opacity: 0.28; transform: scale(1); }
-    50%       { opacity: 0.52; transform: scale(1.07); }
-  }
-  @keyframes scroll-bounce {
-    0%, 100% { transform: translateY(0); opacity: 0.5; }
-    50%       { transform: translateY(9px); opacity: 0.15; }
+/* Dark theme */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: 0 0% 5%;
+    --surface: 0 0% 9%;
+    --surface-raised: 0 0% 13%;
+    --border: 0 0% 17%;
+    --foreground: 40 15% 93%;
+    --muted: 0 0% 45%;
+    --accent: 0 72% 55%;
+    --accent-foreground: 0 0% 5%;
+    --error: 0 72% 62%;
   }
 }
 
-/* ─── Base Reset ─────────────────────────────────────── */
-*, *::before, *::after { box-sizing: border-box; }
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
 
 html {
-  height: 100%;
-  scrollbar-width: none;
-}
-
-html::-webkit-scrollbar {
-  display: none;
+  scroll-behavior: smooth;
 }
 
 body {
-  min-height: 100%;
-  background: #070709;
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+  font-family: var(--font-geist-sans), system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-rendering: optimizeLegibility;
-  overflow-x: hidden;
 }
 
-body {
-  font-family: var(--font-sans), system-ui, sans-serif;
-  color: #F0F0EE;
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: hsl(var(--background));
+}
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--border));
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--muted));
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-display), Georgia, serif;
+/* Custom cursor — hide OS cursor on pointer-fine devices */
+@media (pointer: fine) {
+  html { cursor: none; }
+  a, button, [role="button"] { cursor: none; }
 }
 
-/* ─── Selection ──────────────────────────────────────── */
-::selection {
-  background: rgba(139, 127, 212, 0.22);
-  color: #F0F0EE;
+/* Focus ring */
+:focus-visible {
+  outline: 2px solid hsl(var(--accent));
+  outline-offset: 2px;
+  border-radius: 2px;
 }
 
-/* ─── Typography Helpers ─────────────────────────────── */
-.text-label {
-  font-family: ui-monospace, "SF Mono", Menlo, monospace;
-  font-size: 11px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
+/* Marquee animation */
+@keyframes marquee-scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
 }
 
-/* ─── Glass ──────────────────────────────────────────── */
-.glass-dark {
-  background: rgba(255, 255, 255, 0.03);
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
-  border: 1px solid rgba(255, 255, 255, 0.06);
+/* Prose styles for blog */
+.prose {
+  color: hsl(var(--foreground));
+  max-width: 65ch;
 }
-
-/* ─── Mobile scroll snap ─────────────────────────────── */
-/* On touch devices Lenis is disabled — CSS snap takes over */
-@media (pointer: coarse) {
-  html {
-    scroll-snap-type: y mandatory;
-    scroll-behavior: smooth;
-  }
-  .scroll-snap-target {
-    scroll-snap-align: start;
-    scroll-snap-stop: always;
-  }
+.prose h1,
+.prose h2,
+.prose h3,
+.prose h4 {
+  color: hsl(var(--foreground));
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  scroll-margin-top: 5rem;
 }
-
-/* ─── Tailwind Utilities ─────────────────────────────── */
-@utility text-balance {
-  text-wrap: balance;
+.prose h2 { font-size: 1.5rem; margin-top: 2.5rem; margin-bottom: 1rem; }
+.prose h3 { font-size: 1.2rem; margin-top: 2rem; margin-bottom: 0.75rem; }
+.prose p { margin-bottom: 1.25rem; line-height: 1.75; color: hsl(var(--muted)); }
+.prose a { color: hsl(var(--accent)); text-decoration: underline; text-decoration-color: hsl(var(--accent) / 0.4); }
+.prose code {
+  background: hsl(var(--surface-raised));
+  padding: 0.15em 0.4em;
+  border-radius: 4px;
+  font-size: 0.875em;
+  font-family: var(--font-geist-mono);
+}
+.prose pre {
+  background: hsl(var(--surface));
+  border: 1px solid hsl(var(--border));
+  border-radius: 8px;
+  padding: 1.25rem;
+  overflow-x: auto;
+  margin: 1.5rem 0;
+}
+.prose pre code { background: none; padding: 0; }
+.prose ul, .prose ol { padding-left: 1.5rem; margin-bottom: 1.25rem; color: hsl(var(--muted)); }
+.prose li { margin-bottom: 0.5rem; line-height: 1.75; }
+.prose blockquote {
+  border-left: 3px solid hsl(var(--accent));
+  padding-left: 1.25rem;
+  margin: 1.5rem 0;
+  color: hsl(var(--muted));
+  font-style: italic;
 }

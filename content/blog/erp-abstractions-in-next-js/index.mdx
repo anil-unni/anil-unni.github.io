@@ -1,0 +1,63 @@
+---
+title: "ERP Abstractions in Next.js: Building Reusable Business Logic Layers"
+date: "2026-06-15"
+description: "How principles from enterprise ERP design translate into scalable React architecture — reusable modules, shared state, and business logic separation."
+tags: ["Next.js", "ERP", "Architecture", "TypeScript"]
+published: true
+image: "https://res.cloudinary.com/demo/image/upload/blog/erp-abstractions.jpg"
+---
+
+## Introduction
+
+Enterprise Resource Planning systems are, at their core, about one thing: **abstraction**. Every SAP module, every Oracle workflow, every Odoo view is the result of years of thinking about how to separate business rules from presentation, how to make a purchase order look the same whether it's printed, emailed, or displayed in a browser.
+
+When I moved from implementing ERP systems to building web applications with Next.js, the muscle memory didn't disappear — it adapted.
+
+## The Core Parallel
+
+In ERP development, you think in three layers:
+
+1. **Master Data** — the canonical records (products, customers, accounts)
+2. **Transaction Layer** — the events that mutate master data (invoices, receipts, journal entries)
+3. **Reporting Layer** — read-optimized views over the above
+
+In a Next.js App Router application, this maps almost directly:
+
+1. **Data Models / Types** — TypeScript interfaces and Zod schemas in `/lib/types`
+2. **Server Actions / API Routes** — mutations, form submissions, CRON jobs
+3. **React Server Components** — read-only, data-fetch-at-render views
+
+## Reusable Business Logic with Server Actions
+
+One of the cleanest patterns I've found is extracting business logic into pure functions that server actions call. This keeps your `route.ts` files thin and your logic testable.
+
+```typescript
+// lib/invoice.ts
+export async function createInvoice(data: InvoiceInput): Promise<Invoice> {
+  const validated = InvoiceSchema.parse(data);
+  const lineTotal = validated.lines.reduce((sum, l) => sum + l.qty * l.rate, 0);
+  const tax = lineTotal * validated.taxRate;
+  return db.invoice.create({ ...validated, lineTotal, tax, total: lineTotal + tax });
+}
+```
+
+```typescript
+// app/api/invoices/route.ts
+import { createInvoice } from "@/lib/invoice";
+
+export async function POST(req: Request) {
+  const body = await req.json();
+  const invoice = await createInvoice(body);
+  return Response.json(invoice, { status: 201 });
+}
+```
+
+## Shared State: The ERP Session Analogy
+
+ERP systems maintain session context — the company code, the fiscal year, the user's role. In a multi-tenant Next.js application, you replicate this with a combination of middleware and React context.
+
+## Conclusion
+
+The best software architecture, whether it's an S/4HANA customization or a React app, shares the same fundamental discipline: **keep business rules in one place, and let the presentation layer be a thin consumer of them.**
+
+ERP thinking made me a better web developer. The patterns are older than the frameworks.
